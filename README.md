@@ -67,15 +67,15 @@ Once we chose our primary model, we continued to fine-tune it in an effort to in
     ![image](https://github.com/aderdiger/MADAIN/blob/a90a26d55caa387aa8614be2b8cad85adb77fffb/run4/run7/visualizations/roc_curve_InceptionV3_Adam.png)
     
 
-                precision    recall  f1-score   support
+                        precision    recall  f1-score   support
 
-       akiec       0.04      0.06      0.05        65
-         bcc       0.06      0.07      0.06       103
-         bkl       0.00      0.00      0.00       220
-          df       0.00      0.00      0.00        23
-         mel       0.11      0.70      0.19       223
-          nv       0.63      0.12      0.20      1341
-        vasc       0.02      0.04      0.03        28
+              akiec       0.04      0.06      0.05        65
+                bcc       0.06      0.07      0.06       103
+                bkl       0.00      0.00      0.00       220
+                df        0.00      0.00      0.00        23
+                mel       0.11      0.70      0.19       223
+                nv        0.63      0.12      0.20      1341
+                vasc      0.02      0.04      0.03        28
    
        accuracy                               0.16      2003
        macro avg          0.12      0.14      0.08      2003
@@ -99,22 +99,63 @@ Once we chose our primary model, we continued to fine-tune it in an effort to in
        weighted avg       0.67      0.54      0.59      2003
 
 
-5. Custom weighting - 4x on 'bcc' and 'akeic', 20x on 'mel' (run7)
-    a. 
-6. Inverse proportional weighting (run8)
+5. Inverse proportional weighting (run8)
     a. Weighted classes based on the inverse of their frequency
    
-7. Class balanced loss approach weighting (run9)
+6. Class balanced loss approach weighting (run9)
     a. Attempted to implement balanced loss weighting, model performed poorly
-8. Adding generated augmented images to training data (run10)
+
+7. Adding generated augmented images to training data (run10)
     a. Added a random imgage augementor and image generator 
     b. Added randomly generated images back into training data 
     c. Wanted to normalize percentage representation in data set of underrepresented classes
-9. Increasing custom layer neuron density from 512 to 1024 and rerunning promissing models
-    a. Top performers are as follows: InceptionV3.Adam, ResNet50.Adam, VGG16.SGD
-    b. Will more than likely continue forward with InceptionV3.Adam
-    c. May also run ResNet50 in tandum, as epoch count does not seem to make a drastic difference. (As determined in run3)
-10. Augmented image generation with 1000 images for underrepresented classes (run12)
+
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run10/visualizations/roc_curve_InceptionV3_Adam.png)
+
+                    precision    recall  f1-score   support
+
+            akiec       0.01      0.02      0.01        65
+              bcc       0.04      0.06      0.05       103
+              bkl       0.07      0.03      0.04       220
+               df       0.03      0.04      0.04        23
+              mel       0.12      0.22      0.15       223
+               nv       0.68      0.61      0.64      1341
+             vasc       0.00      0.00      0.00        28
+
+         accuracy                           0.44      2003
+        macro avg       0.14      0.14      0.13      2003
+     weighted avg       0.48      0.44      0.45      2003
+
+
+8. Increasing custom layer neuron density from 512 to 1024 and rerunning promissing models (run11; v12)
+    a. Testing Multiple models with increased neuron count
+    b. Top performers are as follows: InceptionV3.Adam, ResNet50.Adam, VGG16.SGD
+    c. Ultimately, InceptionV3.Adam remained the highest perfrmer
+    
+    InceptionV3.Adam
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_InceptionV3_Adam.png)
+
+                    precision    recall  f1-score   support
+
+            akiec       0.03      0.06      0.04        65
+              bcc       0.04      0.06      0.05       103
+              bkl       0.12      0.14      0.13       220
+               df       0.01      0.04      0.02        23
+              mel       0.09      0.15      0.12       223
+               nv       0.67      0.50      0.57      1341
+             vasc       0.03      0.07      0.04        28
+
+         accuracy                           0.37      2003
+        macro avg       0.14      0.15      0.14      2003
+     weighted avg       0.48      0.37      0.41      2003
+
+    ResNet50.Adam
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_ResNet50_Adam.png)
+
+    VGG16.SGD
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/VGG16_SGD/roc_curve_VGG16_SGD.png)
+
+9. Augmented image generation with 1000 images for underrepresented classes (run12)
     a. Results not impressive
 
 
