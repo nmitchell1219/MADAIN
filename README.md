@@ -191,8 +191,11 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
            macro avg       0.15      0.15      0.15      2003
         weighted avg       0.49      0.41      0.44      2003
 
-10. Augmented image generation with 1000 images for underrepresented classes (run12)
-    1. Results not impressive
+10. Augmented image generation with 1000 images for underrepresented classes (run12; v11)
+    1. This version was technically ran in two parts: the first generated augmented images such that minority classes would contain at least 500 images. The second run generated augmented images such that each minority class would contain at least 1000 images.
+    2. 'df' performing relatively well, but vasc is not being identified at all
+    3. Our theory was that the 'vasc' class was being subsumed into the other minority classes
+       
 
 
 #### Resources:
