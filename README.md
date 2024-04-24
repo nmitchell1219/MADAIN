@@ -4,15 +4,18 @@
 ### By: Amanda Derdiger, Andrew Koller, Mustafa Can Ayter, and Natalia Mitchell
 
 ### Introduction
-We have built a convolutional neural network (CNN) to analyze images of skin lesions and categorize them into one of seven classes, three of which are cancerous and four of which are benign. We have embedded our model into a web app, which is displayed on GitHub pages. 
-
-![image](https://github.com/aderdiger/MADAIN/assets/148494444/e6325a45-a732-4b5b-a062-8a81e86cea94)
+We have built a convolutional neural network (CNN) to analyze images of skin lesions and categorize them into one of seven classes, three of which are cancerous and four of which are benign. We have have also developed a web page, currently hosted on GitHub pages, and plan to embed a web app with our model.
 
 ### Data
-Our dataset is from Kaggle and can be accessed by the link below. This dataset contains 10,015 images of skin lesions across the 7 classes detailed above.
+Our dataset is from Kaggle and can be accessed by the link below. This dataset contains 10,015 images of skin lesions across the 7 classes detailed below.
+
+Demographics:
 
 ![demographics](https://github.com/aderdiger/MADAIN/assets/148494444/b67fe672-58c2-47b1-9d63-bf7c1cfeb654)
 
+Class Definitions:
+
+![image](https://github.com/aderdiger/MADAIN/assets/148494444/e6325a45-a732-4b5b-a062-8a81e86cea94)
 
 https://www.kaggle.com/datasets/farjanakabirsamanta/skin-cancer-dataset
 
@@ -23,10 +26,12 @@ We started by benchmarking three CNN architectures detailed in Aurelien Geron's 
 
 * For benchmarking metrics, see "run1/visualizations/"
 
-Despite the InceptionV3.Adam slightly underperforming relative to ResNet50.Adam in the classification reports, InceptionV3.Adam was chosen for it's supperior performance on AUC metrics. (see \run1\visualizations\roc_curve\roc_curve_InceptionV3_Adam.png). We chose our primary model to maximize our precision and recall scores, with recall on our three cancerous classes more highly prioritized. This is because, in the precision/recall trade-off, favoring recall reduces false negatives. In a cancer identification model, such as this, false negatives in the cancerous classes would be our most detrimental outcome that should be minimized to the extent possible. 
+Despite the InceptionV3.Adam slightly underperforming relative to ResNet50.Adam in the classification reports, InceptionV3.Adam was chosen for it's supperior performance on AUC metrics. (see \run1\visualizations\roc_curve\roc_curve_InceptionV3_Adam.png). 
 
 #### Fine-Tuning the Model
-Once we chose our primary model, we continued to fine-tune it in an effort to increase our precision and recall scores, again prioritizing recall on the three cancerous classes. Our fine-tuning steps, along with their corresponding run folders in our repo are detailed below.
+Once we chose our primary model, we continued to fine-tune it to maximize our AUC, precision, and recall scores, with recall on our three cancerous classes more highly prioritized. This is because, in the precision/recall trade-off, favoring recall reduces false negatives. In a cancer identification model, such as this, false negatives in the cancerous classes would be our most detrimental outcome that should be minimized to the extent possible. Please note the 'Cancer Catcher' model in run4, which reached our higest recall for melanoma at .7. 
+
+Our fine-tuning steps, along with their corresponding run folders in our repo are detailed below.
 
 1. Running InceptionV3.adam at 150 epochs (run3; v6)
     a. Removed image augmentation - original benchmarking involved preliminary image augmentation:
