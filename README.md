@@ -191,10 +191,28 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
            macro avg       0.15      0.15      0.15      2003
         weighted avg       0.49      0.41      0.44      2003
 
-10. Augmented image generation with 1000 images for underrepresented classes (run12; v11)
+10. Augmented image generation with 1000 images for underrepresented classes with InceptionV3.Adam (run12; v11)
     1. This version was technically ran in two parts: the first generated augmented images such that minority classes would contain at least 500 images. The second run generated augmented images such that each minority class would contain at least 1000 images.
     2. 'df' performing relatively well, but vasc is not being identified at all
-    3. Our theory was that the 'vasc' class was being subsumed into the other minority classes
+    3. Our theory was that the 'vasc' class was being subsumed into the other minority classes due to augmentation noise.
+
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run12/visualizations/roc_curve_InceptionV3_Adam.png)
+
+                    precision    recall  f1-score   support
+
+           akiec       0.03      0.06      0.04        65
+             bcc       0.08      0.13      0.09       103
+             bkl       0.14      0.15      0.14       220
+              df       0.00      0.00      0.00        23
+             mel       0.12      0.22      0.15       223
+              nv       0.67      0.50      0.58      1341
+            vasc       0.00      0.00      0.00        28
+
+            accuracy                           0.39      2003
+           macro avg       0.15      0.15      0.14      2003
+        weighted avg       0.48      0.39      0.42      2003
+
+11. 
        
 
 
