@@ -92,7 +92,7 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
     c. Tested to effectiveness of a binary classifier as opposed to a multiclass classifier.
     d. Results unremarkable
 
-   ![image](https://github.com/aderdiger/MADAIN/blob/9736cacc4e400c7f9d526d057b93111dd322f4d7/run5/visualizations/roc_curve_InceptionV3_Adam.png)
+   ![image](https://github.com/AEKoller/MADAIN/blob/main/run5/visualizations/roc_curve_InceptionV3_Adam.png)
 
                        precision    recall  f1-score   support
 
