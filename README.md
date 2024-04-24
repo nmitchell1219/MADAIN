@@ -69,7 +69,7 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
     d. Increased weighting for underrepresented classes by a factor of 4x
     e. Note the recall for 'mel' at .70
 
-    ![image](https://github.com/aderdiger/MADAIN/blob/a90a26d55caa387aa8614be2b8cad85adb77fffb/run4/run7/visualizations/roc_curve_InceptionV3_Adam.png)
+    ![image](https://github.com/AEKoller/MADAIN/blob/main/run4%20-%20Cancer%20Catcher/visualizations/roc_curve_InceptionV3_Adam.png)
     
 
                         precision    recall  f1-score   support
