@@ -34,14 +34,14 @@ Once we chose our primary model, we continued to fine-tune it to maximize our AU
 Our fine-tuning steps, along with their corresponding run folders in our repo are detailed below.
 
 1. Running InceptionV3.adam at 150 epochs (run3; v6)
-    a. Removed image augmentation - original benchmarking involved preliminary image augmentation:
-
+    1. Removed image augmentation - original benchmarking involved preliminary image augmentation:
+        
         rotation_range=20,
         width_shift_range=0.2,
         height_shift_range=0.2,
         horizontal_flip=True,
 
-    b. Results from testing do not show improvement with higher epochs. 
+    2. Results from testing do not show improvement with higher epochs. 
 
     ![image](https://github.com/aderdiger/MADAIN/blob/main/run3/visualizations/roc_curve_InceptionV3_Adam.png)
 
@@ -60,14 +60,14 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
        weighted avg       0.48      0.37      0.41      2003
 
 
-    c. Resolution: test at lower epochs; weights need to be adjusted 
+    3. Resolution: test at lower epochs; weights need to be adjusted 
 
 2. Weighting scheme testing 1 - The Cancer Catcher (run4; v7)
-    a. All testing to this point utilized TensorFlow's 'balanced' weighting system to account for large imblanace in classes.
-    b. 4x on 'bcc' and 'akeic', 20x on 'mel'
-    c. Tested effectiveness of different weights 
-    d. Increased weighting for underrepresented classes by a factor of 4x
-    e. Note the recall for 'mel' at .70
+    1. All testing to this point utilized TensorFlow's 'balanced' weighting system to account for large imblanace in classes.
+    2. 4x on 'bcc' and 'akeic', 20x on 'mel'
+    3. Tested effectiveness of different weights 
+    4. Increased weighting for underrepresented classes by a factor of 4x
+    5. Note the recall for 'mel' at .70
 
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run4%20-%20Cancer%20Catcher/visualizations/roc_curve_InceptionV3_Adam.png)
     
@@ -87,10 +87,10 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
        weighted avg       0.44      0.16      0.16      2003
 
 4. Binary classification testing (run5; v8)
-    a. Testing conducted at same time as weighting scheme testing
-    b. All testing to this point involved a multiclass classifier.
-    c. Tested to effectiveness of a binary classifier as opposed to a multiclass classifier.
-    d. Results unremarkable
+    1. Testing conducted at same time as weighting scheme testing
+    2. All testing to this point involved a multiclass classifier.
+    3. Tested to effectiveness of a binary classifier as opposed to a multiclass classifier.
+    4. Results unremarkable
 
    ![image](https://github.com/AEKoller/MADAIN/blob/main/run5/visualizations/roc_curve_InceptionV3_Adam.png)
 
@@ -105,15 +105,15 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
 
 
 5. Inverse proportional weighting (run8)
-    a. Weighted classes based on the inverse of their frequency
+    1. Weighted classes based on the inverse of their frequency
    
 6. Class balanced loss approach weighting (run9)
-    a. Attempted to implement balanced loss weighting, model performed poorly
+    1. Attempted to implement balanced loss weighting, model performed poorly
 
 7. Adding generated augmented images to training data (run10)
-    a. Added a random imgage augementor and image generator 
-    b. Added randomly generated images back into training data 
-    c. Wanted to normalize percentage representation in data set of underrepresented classes
+    1. Added a random imgage augementor and image generator 
+    2. Added randomly generated images back into training data 
+    3. Wanted to normalize percentage representation in data set of underrepresented classes
 
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run10/visualizations/roc_curve_InceptionV3_Adam.png)
 
@@ -127,15 +127,15 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
                nv       0.68      0.61      0.64      1341
              vasc       0.00      0.00      0.00        28
 
-         accuracy                           0.44      2003
-        macro avg       0.14      0.14      0.13      2003
-     weighted avg       0.48      0.44      0.45      2003
+           accuracy                           0.44      2003
+          macro avg       0.14      0.14      0.13      2003
+       weighted avg       0.48      0.44      0.45      2003
 
 
 8. Increasing custom layer neuron density from 512 to 1024 and rerunning promissing models (run11; v12)
-    a. Testing Multiple models with increased neuron count
-    b. Top performers are as follows: InceptionV3.Adam, ResNet50.Adam, VGG16.SGD
-    c. Ultimately, InceptionV3.Adam remained the highest perfrmer
+    1. Testing Multiple models with increased neuron count
+    2. Top performers are as follows: InceptionV3.Adam, ResNet50.Adam, VGG16.SGD
+    3. Ultimately, InceptionV3.Adam remained the highest perfrmer
     
     InceptionV3.Adam
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_InceptionV3_Adam.png)
@@ -150,9 +150,9 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
                nv       0.67      0.50      0.57      1341
              vasc       0.03      0.07      0.04        28
 
-         accuracy                           0.37      2003
-        macro avg       0.14      0.15      0.14      2003
-     weighted avg       0.48      0.37      0.41      2003
+           accuracy                           0.37      2003
+          macro avg       0.14      0.15      0.14      2003
+       weighted avg       0.48      0.37      0.41      2003
 
     ResNet50.Adam
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_ResNet50_Adam.png)
@@ -161,7 +161,7 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/VGG16_SGD/roc_curve_VGG16_SGD.png)
 
 9. Augmented image generation with 1000 images for underrepresented classes (run12)
-    a. Results not impressive
+    1. Results not impressive
 
 
 #### Resources:
