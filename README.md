@@ -138,9 +138,10 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
     3. Ultimately, InceptionV3.Adam remained the highest perfrmer
     
     InceptionV3.Adam
+   
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_InceptionV3_Adam.png)
 
-                    precision    recall  f1-score   support
+                     precision    recall  f1-score   support
 
             akiec       0.03      0.06      0.04        65
               bcc       0.04      0.06      0.05       103
@@ -155,12 +156,42 @@ Our fine-tuning steps, along with their corresponding run folders in our repo ar
        weighted avg       0.48      0.37      0.41      2003
 
     ResNet50.Adam
+   
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/roc_curve_ResNet50_Adam.png)
 
+                    precision    recall  f1-score   support
+
+           akiec       0.03      0.05      0.04        65
+             bcc       0.04      0.06      0.05       103
+             bkl       0.12      0.13      0.12       220
+              df       0.00      0.00      0.00        23
+             mel       0.13      0.24      0.17       223
+              nv       0.69      0.52      0.59      1341
+            vasc       0.07      0.11      0.09        28
+
+            accuracy                           0.39      2003
+           macro avg       0.16      0.16      0.15      2003
+        weighted avg       0.49      0.39      0.43      2003
+
     VGG16.SGD
+   
     ![image](https://github.com/AEKoller/MADAIN/blob/main/run11/visualizations/VGG16_SGD/roc_curve_VGG16_SGD.png)
 
-9. Augmented image generation with 1000 images for underrepresented classes (run12)
+                    precision    recall  f1-score   support
+
+           akiec       0.04      0.06      0.05        65
+             bcc       0.02      0.03      0.02       103
+             bkl       0.13      0.15      0.14       220
+              df       0.00      0.00      0.00        23
+             mel       0.15      0.24      0.19       223
+              nv       0.68      0.54      0.61      1341
+            vasc       0.03      0.04      0.03        28
+
+            accuracy                           0.41      2003
+           macro avg       0.15      0.15      0.15      2003
+        weighted avg       0.49      0.41      0.44      2003
+
+10. Augmented image generation with 1000 images for underrepresented classes (run12)
     1. Results not impressive
 
 
